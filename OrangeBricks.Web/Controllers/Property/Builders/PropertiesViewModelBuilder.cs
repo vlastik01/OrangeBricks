@@ -29,7 +29,7 @@ namespace OrangeBricks.Web.Controllers.Property.Builders
             return new PropertiesViewModel
             {
                 Properties = properties
-                    .ToList()
+                    //.ToList()
                     .Select(MapViewModel)
                     .ToList(),
                 Search = query.Search

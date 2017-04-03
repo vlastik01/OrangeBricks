@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -291,6 +292,7 @@
     <Content Include="Views\Property\MakeOffer.cshtml" />
     <Content Include="Views\Offers\OnProperty.cshtml" />
     <None Include="Views\Account\UnAuthorized.cshtml" />
+    <Content Include="Views\Property\MyOffers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
