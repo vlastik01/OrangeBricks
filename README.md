@@ -23,7 +23,7 @@ We need you to add the ability for a buyer to book a viewing. It’s unlikely a 
 
 ### Objective 5 - when done, create a parallel project in Websharper and write an article about comparing both approaches.
 
-
+### Objective 6 - will see if I can replace MS SQL server with neo4j. 
 
 ### Objective 999 - Review the existing code
 
