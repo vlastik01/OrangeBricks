@@ -53,6 +53,8 @@ namespace OrangeBricks.Web.Controllers.Property
             return RedirectToAction("MyProperties");
         }
 
+        
+
         [OrangeBricksAuthorize(Roles = "Seller")]
         public ActionResult MyProperties()
         {
@@ -61,6 +63,15 @@ namespace OrangeBricks.Web.Controllers.Property
 
             return View(viewModel);
         }
+
+       /* [OrangeBricksAuthorize(Roles = "Buyer")]
+        public ActionResult MyOffers()
+        {
+            var builder = new MyOffersViewModelBuilder(_context);
+            var viewModel = builder.Build(User.Identity.GetUserId());
+
+            return View(viewModel);
+        }*/
 
         [HttpPost]
         [OrangeBricksAuthorize(Roles = "Seller")]
@@ -86,6 +97,8 @@ namespace OrangeBricks.Web.Controllers.Property
         public ActionResult MakeOffer(MakeOfferCommand command)
         {
             var handler = new MakeOfferCommandHandler(_context);
+
+            command.UserId = User.Identity.GetUserId();
 
             handler.Handle(command);
 

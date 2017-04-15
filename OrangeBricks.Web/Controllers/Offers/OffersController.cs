@@ -3,10 +3,17 @@ using OrangeBricks.Web.Attributes;
 using OrangeBricks.Web.Controllers.Offers.Builders;
 using OrangeBricks.Web.Controllers.Offers.Commands;
 using OrangeBricks.Web.Models;
+using System.Collections;
+using System.Linq;
+using Microsoft.AspNet.Identity;
+using OrangeBricks.Web.Controllers.Property.Builders;
+using OrangeBricks.Web.Controllers.Property.Commands;
+using OrangeBricks.Web.Controllers.Property.ViewModels;
+
 
 namespace OrangeBricks.Web.Controllers.Offers
 {
-    [OrangeBricksAuthorize(Roles = "Seller")]
+    
     public class OffersController : Controller
     {
         private readonly IOrangeBricksContext _context;
@@ -15,7 +22,7 @@ namespace OrangeBricks.Web.Controllers.Offers
         {
             _context = context;
         }
-
+        [OrangeBricksAuthorize(Roles = "Seller")]
         public ActionResult OnProperty(int id)
         {
             var builder = new OffersOnPropertyViewModelBuilder(_context);
@@ -24,7 +31,27 @@ namespace OrangeBricks.Web.Controllers.Offers
             return View(viewModel);
         }
 
-        [HttpPost]        
+       [OrangeBricksAuthorize(Roles = "Buyer")]
+       public ActionResult MyOffers()
+       {
+           var builder = new MyOffersViewModelBuilder(_context);
+           var viewModel = builder.Build(User.Identity.GetUserId());
+
+           return View(viewModel);
+       }
+
+        //[OrangeBricksAuthorize(Roles = "Seller")]
+        //public ActionResult MyProperties()
+        //{
+        //    var builder = new MyPropertiesViewModelBuilder(_context);
+        //    var viewModel = builder.Build(User.Identity.GetUserId());
+
+        //    return View(viewModel);
+        //}
+
+
+        [HttpPost]
+        [OrangeBricksAuthorize(Roles = "Seller")]
         public ActionResult Accept(AcceptOfferCommand command)
         {
             var handler = new AcceptOfferCommandHandler(_context);
@@ -35,6 +62,7 @@ namespace OrangeBricks.Web.Controllers.Offers
         }
 
         [HttpPost]
+        [OrangeBricksAuthorize(Roles = "Seller")]
         public ActionResult Reject(RejectOfferCommand command)
         {
             var handler = new RejectOfferCommandHandler(_context);

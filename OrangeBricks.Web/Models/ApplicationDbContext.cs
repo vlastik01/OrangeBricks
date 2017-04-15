@@ -7,7 +7,7 @@ namespace OrangeBricks.Web.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IOrangeBricksContext
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("DefaultConnection", throwIfV1Schema: false) 
         {
         }
 

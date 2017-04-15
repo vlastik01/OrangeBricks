@@ -28,7 +28,7 @@ namespace OrangeBricks.Web.Controllers.Property.Builders
                         PropertyType = p.PropertyType,
                         IsListedForSale = p.IsListedForSale
                     })
-                    .ToList()
+                   .ToList()
             };
         }
     }
