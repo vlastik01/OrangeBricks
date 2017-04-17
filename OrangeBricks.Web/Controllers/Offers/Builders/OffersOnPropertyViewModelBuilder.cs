@@ -21,11 +21,12 @@ namespace OrangeBricks.Web.Controllers.Offers.Builders
                 .Where(p => p.Id == id)
                 .Include(x => x.Offers)
                 .SingleOrDefault();
-
+            
             var offers = property.Offers ?? new List<Offer>();
 
             return new OffersOnPropertyViewModel
             {
+               
                 HasOffers = offers.Any(),
                 Offers = offers.Select(x => new OfferViewModel
                 {

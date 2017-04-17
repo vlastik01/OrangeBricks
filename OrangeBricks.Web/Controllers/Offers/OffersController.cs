@@ -31,10 +31,18 @@ namespace OrangeBricks.Web.Controllers.Offers
             return View(viewModel);
         }
 
-       [OrangeBricksAuthorize(Roles = "Buyer")]
-       public ActionResult MyOffers()
+        public ActionResult OnPropertyMyOffers(int id)
+        {
+            var builder = new MyOffersOnPropertyViewModelBuilder(_context);
+            var viewModel = builder.Build(id, User.Identity.GetUserId());
+
+            return View(viewModel);
+        }
+
+        [OrangeBricksAuthorize(Roles = "Buyer")]
+       public ActionResult MyPropertiesOffers()
        {
-           var builder = new MyOffersViewModelBuilder(_context);
+           var builder = new MyPropertiesOfferedViewModelBuilder(_context);
            var viewModel = builder.Build(User.Identity.GetUserId());
 
            return View(viewModel);
