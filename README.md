@@ -1,6 +1,6 @@
 # Originally it was a Purplebricks Developer Test
 
-The modified project is in ElmBricks Folder
+###The modified project is in ElmBricks Folder
 
 The existing web application supports two types of customer. Sellers are able to upload information about a property and list the property for sale. Buyers can search for a property and make an offer. When an offer has been placed on a property the seller should be able to accept or reject the offer.
 
