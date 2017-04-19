@@ -1,0 +1,6 @@
+<WorkspaceItem ctype="Workspace">
+  <Items>
+    <Item>../OrangeBricksOriginal/OrangeBricks.Web.sln</Item>
+    <Item>../ElmBricks/ElmBricks.Web.sln</Item>
+  </Items>
+</WorkspaceItem>
