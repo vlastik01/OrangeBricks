@@ -24,7 +24,11 @@ Implementation detail: the creating offers can be used as a template, only one h
 
 ### Objective 5 - when done, create a parallel project in Websharper and write an article about comparing both approaches.
 
-### Objective 6 - will see if I can replace MS SQL server with neo4j. 
+### Objective 6 - the app will run on Mac under mono 
+
+### Objective 7 - MS SQL server will run on Mac 
+
+### Objective 8 - will see if I can replace MS SQL server with neo4j. 
 
 ### Objective 999 - Review the existing code
 
